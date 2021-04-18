@@ -49,22 +49,22 @@
 		
 	student_info = data.filter(getInfo)
 	function getInfo (item) {
-		return item.major =selected_major;
+		return item.major == selected_major;
 	}
 	
 	if (request.status ==200) {
 		var templateText = document.getElementById('tableTemplate').innerHTML;
 		var compiledTemplateText = Handlebars.comile(templateText);
 		compiledHtml = compiledTemplateText({rows: student_info})
-		document.getElementById('majorsTable').innerHTML = comiledHTML;
+		document.getElementById('majorsTable').innerHTML = compiledHtml;
 	
 	}
 	else {
-		documnet.querySelector('#majorsTable').innerHTML="There was an error.";
+		documnet.querySelector('#majorsTable').innerHTML= "There was an error.";
 		}
 	}
 	request.send(null);
-	}
+}
 	
  </script>
 
