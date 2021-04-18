@@ -15,7 +15,7 @@
 </head>
 
 <body>
-	<h1> Select A Major 1</h1>
+	<h1> Select A Major 2 </h1>
 
 	<p><button type='button' class="btn btn-primary" onClick="getData('CIT')">CIT Majors</button></p>
 	<p><button type='button' class="btn btn-primary" onClick="getData('BUS')">Business Majors</button></p>
@@ -54,7 +54,7 @@
 	
 	if (request.status ==200) {
 		var templateText = document.getElementById('tableTemplate').innerHTML;
-		var compiledTemplateText = Handlebars.comile(templateText);
+		var compiledTemplateText = Handlebars.compile(templateText);
 		compiledHtml = compiledTemplateText({rows: student_info})
 		document.getElementById('majorsTable').innerHTML = compiledHtml;
 	
