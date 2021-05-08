@@ -28,15 +28,20 @@
        <p><input type='text' ng-model='search_text' > Enter Search text</p>
        <table class="table table-bordered table-striped">
            <tr>
-             <th>id</th> <th>last name</th> <th>first name</th> <th>credit hours</th> <th>gpa</th>
+             <th>id</th> 
+			 <th>last name</th> 
+			 <th>first name</th> 
+			 <th>credit hours</th> 
+			 <th>gpa</th>
            </tr>
   
            <tr ng-repeat = "car in cars | filter:search_text">  <!-- filter by search textbox value -->
                <td>{{students.id}}</td>
-               <td>{{students.last_name}}</td>
-               <td>{{students.first_name}}</td>
+               <td>{{students.first.name}}</td>
+               <td>{{students.last.name}}</td>
                <td>{{students.credit_hrs}}</td>
                <td>{{students.gpa_points}}</td>
+			   <td>{{students.major}}</td>
            </tr>
        </table>
      </div>   <!-- end studentsApp -->
@@ -55,13 +60,6 @@
 
 </script>
   </body></html>
-
-
-
-
-
-
-
 
 
 
