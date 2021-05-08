@@ -28,11 +28,12 @@
        <p><input type='text' ng-model='search_text' > Enter Search text</p>
        <table class="table table-bordered table-striped">
            <tr>
-             <th>id</th> 
-			 <th>last name</th> 
-			 <th>first name</th> 
-			 <th>credit hours</th> 
-			 <th>gpa</th>
+            		 <th>id</th> 
+			 <th>first_name</th> 
+			 <th>last_name</th> 
+			 <th>credit_hrs</th> 
+			 <th>gpa_points</th>
+		  	 <th>students.major</th>
            </tr>
   
            <tr ng-repeat = "car in cars | filter:search_text">  <!-- filter by search textbox value -->
