@@ -28,12 +28,12 @@
        <p><input type='text' ng-model='search_text' > Enter Search text</p>
        <table class="table table-bordered table-striped">
            <tr>
-            		 <th>id</th> 
+			 <th>id</th> 
 			 <th>first_name</th> 
 			 <th>last_name</th> 
 			 <th>credit_hrs</th> 
 			 <th>gpa_points</th>
-		  	 <th>students.major</th>
+		  	 <th>major</th>
            </tr>
   
            <tr ng-repeat = "car in cars | filter:search_text">  <!-- filter by search textbox value -->
@@ -54,14 +54,13 @@
   
           $http.get("students.json")          // get all the student data
           .then(function (response) {
-               $scope.cars = response.data;    // put the data in the table
+               $scope.students = response.data;    // put the data in the table
           });
 
        });
 
 </script>
   </body></html>
-
 
 
 
