@@ -1,78 +1,62 @@
-<!DOCTYPE:html>
-<html>
-<head>
-	<meta charset="UTF-8">    <title>Programming Project 5 KPreston</title>
-	
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
-	
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
-    <style> .btn{margin: 5px} </style>
-	
-	
+<!DOCTYPE html>
+  <html><head><title>cars 4 sale</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.min.js"></script> 
 </head>
 
-<body>
-	<h1> Select A Major  </h1>
+<body ng-app = "carsApp">
 
-	<p><button type='button' class="btn btn-primary" onClick="getData('CIT')">CIT Majors</button></p>
-	<p><button type='button' class="btn btn-primary" onClick="getData('BUS')">Business Majors</button></p>
-	
-<h2>We filter our dataset by major</h2>
 
-<div id="majorsTable"></div>
+<div class="container">
+    <nav class="navbar navbar-inverse">
+    <div class="navbar-header">
+         <a class="navbar-brand" href="#">Our Website</a>
+    </div>
+    <div>
+         <ul class="nav navbar-nav">
+             <li class="active"><a href="index.html">Welcome</a></li>
+             <li><a href="all_cars.html">All the Cars</a></li>
+         </ul>
+    </div>
+    </nav>    <!-- end nav-bar -->
 
-</body>
+    <div ng-controller = "allCtrl">
 
-<script type="text/x-handlebars-template" id="tableTemplate">
-     <table cellspacing='12'>
-         <tr><th>Name</th><th>Major</th><th>Midterm</th><th>Final</th></tr>
-            {{#each rows}}
-                 <tr>
-                    <td>{{name}}</td><td>{{major}}</td><td>{{midterm}}</td><td>{{final}}</td>
-                 </tr>
-            {{/each}}
-     </table>
-  </script>
-
-<!-- Ajax Code -->
-  <script>
+    <h2>All Cars</h2>
+       <p><input type='text' ng-model='search_text' > Enter Search text</p>
+       <table class="table table-bordered table-striped">
+           <tr>
+             <th>id</th> <th>year</th> <th>make</th> <th>model</th> <th>miles</th> <th>price</th> <th>dealer</th>
+           </tr>
   
-  function getData(selected_major) {
-	var request = new XMLHttpRequest();
-	request.open('GET', 'cit5students.json');
-	
-	request.onload = function() {
-		var data = JSON.parse(request.responseText);
-		
-	student_info = data.filter(getInfo)
-	function getInfo (item) {
-		return item.major == selected_major;
-	}
-	
-	if (request.status ==200) {
-		var templateText = document.getElementById('tableTemplate').innerHTML;
-		var compiledTemplateText = Handlebars.compile(templateText);
-		compiledHtml = compiledTemplateText({rows: student_info})
-		document.getElementById('majorsTable').innerHTML = compiledHtml;
-	
-	}
-	else {
-		documnet.querySelector('#majorsTable').innerHTML= "There was an error.";
-		}
-	}
-	request.send(null);
-}
-	
- </script>
+           <tr ng-repeat = "car in cars | filter:search_text">  <!-- filter by search textbox value -->
+               <td>{{car.id}}</td>
+               <td>{{car.year}}</td>
+               <td>{{car.make}}</td>
+               <td>{{car.model}}</td>
+               <td>{{car.miles}}</td>
+               <td>{{car.price | currency}}</td>
+               <td>{{car.dealer}}</td>
+           </tr>
+       </table>
+     </div>   <!-- end carsApp -->
+  </div>   <!-- end class= 'container' -->
 
+  <script>
+      var app = angular.module('carsApp', []);
+      app.controller('allCtrl', function($scope, $http) {
+  
+          $http.get("cars.json")          // get all the car data
+          .then(function (response) {
+               $scope.cars = response.data;    // put the data in the table
+          });
 
+       });
 
-
-</html>
-
+</script>
+  </body></html>
 
 
 
