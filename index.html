@@ -12,7 +12,7 @@
 <div class="container">
     <nav class="navbar navbar-inverse">
     <div class="navbar-header">
-         <a class="navbar-brand" href="#">Our Website</a>
+         <a class="navbar-brand" href="#">A Advisees</a>
     </div>
     <div>
          <ul class="nav navbar-nav">
@@ -24,20 +24,20 @@
 
     <div ng-controller = "allCtrl">
 
-    <h2>All Cars</h2>
+    <h2>Grade Point Averages</h2>
        <p><input type='text' ng-model='search_text' > Enter Search text</p>
        <table class="table table-bordered table-striped">
            <tr>
-             <th>id</th> <th>year</th> <th>make</th> <th>model</th> <th>miles</th> <th>price</th> <th>dealer</th>
+             <th>id</th> <th>last name</th> <th>first name</th> <th>credit hours</th> <th>gpa</th> <th>price</th> <th>dealer</th>
            </tr>
   
            <tr ng-repeat = "car in cars | filter:search_text">  <!-- filter by search textbox value -->
-               <td>{{car.id}}</td>
-               <td>{{car.year}}</td>
-               <td>{{car.make}}</td>
-               <td>{{car.model}}</td>
-               <td>{{car.miles}}</td>
-               <td>{{car.price | currency}}</td>
+               <td>{{students.id}}</td>
+               <td>{{students.last_name}}</td>
+               <td>{{students.first_name}}</td>
+               <td>{{students.credit_hrs}}</td>
+               <td>{{students.gpa_points}}</td>
+               <td>{{students.major | currency}}</td>
                <td>{{car.dealer}}</td>
            </tr>
        </table>
