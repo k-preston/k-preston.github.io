@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-  <html><head><title>cars 4 sale</title>
+  <html><head><title>Program 6</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -28,7 +28,7 @@
        <p><input type='text' ng-model='search_text' > Enter Search text</p>
        <table class="table table-bordered table-striped">
            <tr>
-             <th>id</th> <th>last name</th> <th>first name</th> <th>credit hours</th> <th>gpa</th> <th>price</th> <th>dealer</th>
+             <th>id</th> <th>last name</th> <th>first name</th> <th>credit hours</th> <th>gpa</th>
            </tr>
   
            <tr ng-repeat = "car in cars | filter:search_text">  <!-- filter by search textbox value -->
@@ -37,8 +37,6 @@
                <td>{{students.first_name}}</td>
                <td>{{students.credit_hrs}}</td>
                <td>{{students.gpa_points}}</td>
-               <td>{{students.major | currency}}</td>
-               <td>{{car.dealer}}</td>
            </tr>
        </table>
      </div>   <!-- end studentsApp -->
@@ -57,7 +55,6 @@
 
 </script>
   </body></html>
-
 
 
 
