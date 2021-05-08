@@ -31,18 +31,14 @@
 			 <th>id</th> 
 			 <th>first_name</th> 
 			 <th>last_name</th> 
-			 <th>credit_hrs</th> 
 			 <th>gpa_points</th>
-		  	 <th>major</th>
            </tr>
   
-           <tr ng-repeat = "car in cars | filter:search_text">  <!-- filter by search textbox value -->
+           <tr ng-repeat = "students in students | filter:search_text">  <!-- filter by search textbox value -->
                <td>{{students.id}}</td>
                <td>{{students.first_name}}</td>
                <td>{{students.last_name}}</td>
-               <td>{{students.credit_hrs}}</td>
-               <td>{{students.gpa_points}}</td>
-			   <td>{{students.major}}</td>
+                <td>{{(student.gpa_points / student.credit_hrs).toFixed(1)}}</td>
            </tr>
        </table>
      </div>   <!-- end studentsApp -->
