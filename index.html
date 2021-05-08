@@ -6,7 +6,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.min.js"></script> 
 </head>
 
-<body ng-app = "carsApp">
+<body ng-app = "studentsApp">
 
 
 <div class="container">
@@ -16,8 +16,8 @@
     </div>
     <div>
          <ul class="nav navbar-nav">
-             <li class="active"><a href="index.html">Welcome</a></li>
-             <li><a href="all_cars.html">All the Cars</a></li>
+             <li class="active"><a href="index.html">All Advisees</a></li>
+             <li><a href="all_cars.html">Grade Point Averages</a></li>
          </ul>
     </div>
     </nav>    <!-- end nav-bar -->
@@ -41,14 +41,14 @@
                <td>{{car.dealer}}</td>
            </tr>
        </table>
-     </div>   <!-- end carsApp -->
+     </div>   <!-- end studentsApp -->
   </div>   <!-- end class= 'container' -->
 
   <script>
-      var app = angular.module('carsApp', []);
+      var app = angular.module('studentsApp', []);
       app.controller('allCtrl', function($scope, $http) {
   
-          $http.get("cars.json")          // get all the car data
+          $http.get("students.json")          // get all the student data
           .then(function (response) {
                $scope.cars = response.data;    // put the data in the table
           });
@@ -57,7 +57,6 @@
 
 </script>
   </body></html>
-
 
 
 
